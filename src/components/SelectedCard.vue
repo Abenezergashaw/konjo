@@ -15,7 +15,7 @@ const props = defineProps({
       v-for="c in card"
       class="flex flex-col justify-center items-center mx-auto mt-4 p-2 border rounded-xl shadow-md"
     >
-      <div class="text-lg text-gray-800 text-center tracking-wider">
+      <div class="text-lg text-gray-200 text-center tracking-wider">
         Cartela {{ c?.id }}
       </div>
       <div

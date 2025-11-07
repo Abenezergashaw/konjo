@@ -13,7 +13,7 @@ const getNumberColor = (number) => {
 
   if (!match) return "bg-gray-200 opacity-85 rounded"; // Not selected
   return match.user_id === props.phone
-    ? "bg-yellow-500 opacity-100 rounded-xl"
+    ? "bg-teal-500 opacity-100 rounded-xl text-white"
     : "bg-gray-700 bg-opacity-80 rounded-xl text-white";
 };
 </script>

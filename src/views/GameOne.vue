@@ -15,6 +15,11 @@ import useCard from "@/composables/useCard";
 import { useUrl } from "@/stores/url";
 import { useRouter } from "vue-router";
 import PlaceholderCard from "@/components/PlaceholderCard.vue";
+import {
+  preloadAllAudios,
+  unlockAudio,
+  playCachedAudio,
+} from "@/composables/useAudioManager";
 
 const { get_card } = useCard();
 const url = useUrl();
@@ -31,7 +36,6 @@ const stake = 20;
 const game = ref(null);
 const numbers = Array.from({ length: 75 }, (_, i) => i + 1);
 const winnersData = ref([]);
-const winnersLine = ref(null);
 const winnerModal = ref(false);
 const gameEndCounter = ref(8);
 let gameEndInterval = null;
@@ -78,13 +82,21 @@ socket.on(`timer_${stake}`, (g) => {
 socket.on(`game_ended_${stake}`, (g) => {
   game.value = JSON.parse(g);
 });
-
+const audio = ref(false);
+const audioStatus = () => {
+  // unlockAudio();
+  audio.value = !audio.value;
+};
 socket.on(`selected_card_respose_${stake}`, (games) => {
   game.value = JSON.parse(games);
+  const a = game.value.players.find((p) => p.user_id === phone.value);
 });
 
 socket.on(`drawing_numbers_${stake}`, (g) => {
   game.value = JSON.parse(g);
+  if (audio.value) {
+    playCachedAudio(`sound${game.value.current_number}`);
+  }
 });
 
 socket.on(`bingo_${stake}`, (g) => {
@@ -155,6 +167,8 @@ socket.on("errorMessage", (msg, n) => {
 function handleCardSelect(n) {
   const card = get_card(n);
   card.value = card;
+  unlockAudio();
+
   socket.emit("cartela_selected", n, stake, phone.value);
 }
 
@@ -203,7 +217,12 @@ onMounted(async () => {
     />
   </div>
   <div v-if="game?.active">
-    <GameNavbar :game="game" :stake="stake" />
+    <GameNavbar
+      :game="game"
+      :stake="stake"
+      :audio="audio"
+      @changeAudioState="audioStatus"
+    />
     <div class="flex h-[100%] justify-center mt-2 gap-1 py-2">
       <div class="flex-1 flex flex-col gap-1">
         <CurrentBall :game="game" />

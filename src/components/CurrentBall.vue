@@ -30,11 +30,11 @@ function get_letter(n) {
 </script>
 <template>
   <div
-    class="bg-teal-500 border-2 border-gray-300 flex-1 h-16 flex justify-between items-center text-sm font-bold text-white px-2 uppercase tracking-wider mt-3 rounded-full"
+    class="bg-[#FDF116] border-2 border-gray-300 flex-1 h-16 flex justify-between items-center text-sm font-bold text-black px-2 uppercase tracking-wider mt-3 rounded-full"
   >
     <span class="font-bold">Current Call</span>
     <span
-      class="font-bold w-12 h-12 flex justify-center items-center rounded-full"
+      class="font-bold w-12 h-12 flex justify-center items-center rounded-full text-white"
       :class="`${get_letter(game?.current_number).bg}`"
       >{{ get_letter(game?.current_number).l }}-{{ game?.current_number }}</span
     >

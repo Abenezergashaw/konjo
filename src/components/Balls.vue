@@ -53,7 +53,7 @@ const headers = ["B", "I", "N", "G", "O"];
               number === (game?.current_number || 0)
                 ? ' animate-ping text-black'
                 : game?.drawn_numbers.includes(number)
-                ? 'bg-yellow-500 text-white'
+                ? 'bg-teal-500 text-white'
                 : ' '
             }
                 text-center  font-bold rounded flex items-center justify-center text-lg h-8 text-black bg-gray-100 bg-opacity-80 border-2 border-white`"

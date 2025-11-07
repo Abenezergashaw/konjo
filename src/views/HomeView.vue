@@ -15,6 +15,11 @@ import useCard from "@/composables/useCard";
 import { useUrl } from "@/stores/url";
 import { useRouter } from "vue-router";
 import PlaceholderCard from "@/components/PlaceholderCard.vue";
+import {
+  preloadAllAudios,
+  unlockAudio,
+  playCachedAudio,
+} from "@/composables/useAudioManager";
 
 const { get_card } = useCard();
 const url = useUrl();
@@ -85,6 +90,9 @@ socket.on(`selected_card_respose_${stake}`, (games) => {
 
 socket.on(`drawing_numbers_${stake}`, (g) => {
   game.value = JSON.parse(g);
+  if (audio.value) {
+    playCachedAudio(`sound${game.value.current_number}`);
+  }
 });
 
 socket.on(`bingo_${stake}`, (g) => {
@@ -151,10 +159,17 @@ socket.on("errorMessage", (msg, n) => {
     errorCarNumber.value = null;
   }, 5000);
 });
+const audio = ref(false);
+const audioStatus = () => {
+  // unlockAudio();
+  audio.value = !audio.value;
+};
 
 function handleCardSelect(n) {
   const card = get_card(n);
   card.value = card;
+  unlockAudio();
+  // audio.value = true;
   socket.emit("cartela_selected", n, stake, phone.value);
 }
 
@@ -181,6 +196,7 @@ async function getTelegramId(retries = 5, delay = 500) {
 onMounted(async () => {
   const id = await getTelegramId();
   // const id = "353008986";
+  preloadAllAudios();
 
   socket.emit("set username", id, stake);
 });
@@ -188,7 +204,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="!game?.active">
-    <Navbar :wallet="realBalance + bonusBalance" :game="game" :stake="10" />
+    <Navbar :wallet="realBalance + bonusBalance" :game="game" :stake="stake" />
     <Cards :game="game" :phone="phone" @selectCard="handleCardSelect" />
     <SelectedCard
       v-if="userHasSelectedCartela.status"
@@ -196,7 +212,12 @@ onMounted(async () => {
     />
   </div>
   <div v-if="game?.active">
-    <GameNavbar :game="game" :stake="stake" />
+    <GameNavbar
+      :game="game"
+      :stake="stake"
+      :audio="audio"
+      @changeAudioState="audioStatus"
+    />
     <div class="flex h-[100%] justify-center mt-2 gap-1 py-2">
       <div class="flex-1 flex flex-col gap-1">
         <CurrentBall :game="game" />
