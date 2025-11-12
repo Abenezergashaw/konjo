@@ -13,14 +13,14 @@ const props = defineProps({
   <div class="flex gap-1">
     <div
       v-for="c in card"
-      class="flex flex-col justify-center items-center mx-auto mt-4 p-2 border rounded-xl shadow-md"
+      class="flex flex-col justify-center items-center mx-auto mt-1 p-2 border rounded-xl shadow-md"
     >
-      <div class="text-lg text-gray-200 text-center tracking-wider">
+      <div class="text-sm text-gray-200 text-center tracking-wider">
         Cartela {{ c?.id }}
       </div>
       <div
         v-if="true"
-        class="grid grid-cols-5 gap-1 text-center font-bold text-xl mb-2"
+        class="grid grid-cols-5 gap-1 text-center font-bold text-sm mb-2"
       >
         <div
           v-for="letter in ['B', 'I', 'N', 'G', 'O']"
@@ -93,9 +93,9 @@ const props = defineProps({
 
 <style scoped>
 .bingo-cell {
-  @apply flex items-center justify-center text-center w-8 h-8 text-lg font-semibold text-gray-800 bg-gray-200 border-2 border-white rounded-lg;
+  @apply flex items-center justify-center text-center w-8 h-8 text-sm font-semibold text-gray-800 bg-gray-200 border-2 border-white rounded-lg;
 }
 .bingo-head {
-  @apply flex items-center justify-center text-center w-8 h-8 text-lg font-semibold text-gray-200  rounded-lg;
+  @apply flex items-center justify-center text-center w-8 h-8 text-sm font-semibold text-gray-200  rounded-lg;
 }
 </style>
