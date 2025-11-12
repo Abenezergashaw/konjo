@@ -21,7 +21,7 @@ const headers = ["B", "I", "N", "G", "O"];
         <div
           v-for="(header, i) in headers"
           :key="'header-' + i"
-          class="font-bold text-xl text-[#fff] rounded"
+          class="font-bold text-sm asp text-[#fff] rounded"
           :class="`${
             header === 'B'
               ? 'bg-[#E33739]'
@@ -43,7 +43,7 @@ const headers = ["B", "I", "N", "G", "O"];
         <div
           v-for="(column, colIndex) in columns"
           :key="'col-' + colIndex"
-          class="flex flex-col gap-2"
+          class="flex flex-col gap-1"
         >
           <div
             v-for="number in column"
@@ -56,7 +56,7 @@ const headers = ["B", "I", "N", "G", "O"];
                 ? 'bg-teal-500 text-white'
                 : ' '
             }
-                text-center  font-bold rounded flex items-center justify-center text-lg h-8 text-black bg-gray-100 bg-opacity-80 border-2 border-white`"
+                text-center  font-bold rounded-md flex items-center justify-center text-sm py-1 text-black bg-gray-100 bg-opacity-80 border-2 border-white`"
           >
             {{ number }}
           </div>

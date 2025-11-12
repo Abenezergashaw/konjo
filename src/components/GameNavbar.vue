@@ -9,7 +9,7 @@ defineProps({
 <template>
   <div class="flex justify-between items-center gap-1">
     <div
-      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 h-14 flex flex-col justify-center items-center text-lg font-bold text-white"
+      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 py-1 flex flex-col justify-center items-center text-sm font-bold text-white"
     >
       <span class="font-bold">Derash</span>
       <span>
@@ -27,7 +27,7 @@ defineProps({
       </span>
     </div>
     <div
-      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 h-14 flex flex-col justify-center items-center text-lg text-white"
+      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 py-1 flex flex-col justify-center items-center text-sm text-white"
     >
       <span class="font-bold">Players</span>
       <span>
@@ -41,13 +41,13 @@ defineProps({
       >
     </div>
     <div
-      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 h-14 flex flex-col justify-center items-center text-lg text-white"
+      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 py-1 flex flex-col justify-center items-center text-sm text-white"
     >
       <span class="font-bold">Bet</span>
       <span>{{ stake }}</span>
     </div>
     <div
-      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 h-14 flex flex-col justify-center items-center text-lg text-white"
+      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 py-1 flex flex-col justify-center items-center text-sm text-white"
     >
       <span class="font-bold">Call</span>
       <span>
@@ -56,7 +56,7 @@ defineProps({
     </div>
     <div
       @click="$emit('changeAudioState')"
-      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 h-14 flex flex-col justify-center items-center text-lg text-white"
+      class="bg-[#2C2304] rounded-lg border-2 border-gray-300 flex-1 py-1 flex flex-col justify-center items-center text-sm text-white"
     >
       <span class="font-bold">Sound</span>
       <span>

@@ -218,8 +218,8 @@ onMounted(async () => {
       :audio="audio"
       @changeAudioState="audioStatus"
     />
-    <div class="flex h-[100%] justify-center mt-2 gap-1 py-2">
-      <div class="flex-1 flex flex-col gap-1">
+    <div class="flex h-[100%] justify-center mt-0.5 gap-1 py-2">
+      <div class="flex-1 flex flex-col gap-0.5">
         <CurrentBall :game="game" />
         <LastThreeBalls :game="game" />
         <Balls :numbers="numbers" :game="game" />

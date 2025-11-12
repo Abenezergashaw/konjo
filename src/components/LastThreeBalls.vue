@@ -30,7 +30,7 @@ function get_letter(n) {
 
 <template>
   <div
-    class="bg-white rounded-lg border-2 border-gray-300 h-14 flex justify-center items-center gap-2 font-bold text-white bg-opacity-50 px-2 uppercase tracking-wider my-2"
+    class="bg-white rounded-lg border-2 border-gray-300 h-14 flex justify-center items-center gap-2 font-bold text-white bg-opacity-50 px-2 uppercase tracking-wider mt-1"
   >
     <span
       class="font-bold w-12 h-12 flex justify-center items-center rounded-full"

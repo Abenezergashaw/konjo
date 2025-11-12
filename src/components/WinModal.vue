@@ -24,15 +24,16 @@ function getNumber(row, col, index) {
         class="bg-gray-300 bg-opacity-100 w-[90%] max-h-screen mx-auto mt-32 p-4 rounded-lg overflow-y-auto"
         style="height: 500px"
       >
-        <div class="text-center text-lg tracking-wider my-1 text-teal-500">
-          {{ winnersData.length }} Winners
+        <div class="text-center text-sm tracking-wider my-1 text-teal-500">
+          {{ winnersData.length }}
+          {{ winnersData.length === 1 ? "Winner" : "Winners" }}!
         </div>
         <div
           v-for="(win_card, index) in winnersData"
           :key="index"
           class="w-[90%] sm:w-[60%] mx-auto mb-2 bg-amber-300 p-4 rounded-lg shadow-lg"
         >
-          <div class="text-lg font-bold text-center text-white mb-2 gap-2">
+          <div class="text-base font-bold text-center text-white mb-2 gap-2">
             <div class="text-black">🏆 {{ win_card.username }} Won!! 🏆</div>
             <div class="text-black text-sm">
               Cartela #{{ win_card.card.id }}
@@ -41,7 +42,7 @@ function getNumber(row, col, index) {
 
           <!-- Header Row -->
           <div
-            class="grid grid-cols-5 gap-1 text-center font-bold text-white text-lg mb-2"
+            class="grid grid-cols-5 gap-1 text-center font-bold text-white text-base mb-2"
           >
             <div
               class="border-1 rounded-xl py-1"
@@ -76,20 +77,21 @@ function getNumber(row, col, index) {
                   'w-full', // Take full width in grid cell
                   'rounded-2xl',
                   'border-4',
+                  'text-sm',
                   ' font-semibold flex items-center justify-center',
                   getNumber(rowIndex, colIndex, index) === '★'
                     ? 'border-0 bg-gray-500 text-white'
                     : win_card.c === getNumber(rowIndex, colIndex, index)
-                    ? 'bg-green-500 text-white text-2xl tracking-wider border-yellow-500 animate-pulse'
+                    ? 'bg-green-500 text-white text-base tracking-wider border-yellow-500 animate-pulse'
                     : win_card.unique.includes(
                         getNumber(rowIndex, colIndex, index)
                       )
-                    ? 'border-yellow-600 bg-green-500 text-white text-lg tracking-wider'
+                    ? 'border-yellow-600 bg-green-500 text-white text-sm tracking-wider'
                     : !win_card.unique.includes(
                         getNumber(rowIndex, colIndex, index)
                       ) &&
                       win_card.d.includes(getNumber(rowIndex, colIndex, index))
-                    ? 'border-yellow-600 bg-gray-500 text-black text-lg tracking-wider'
+                    ? 'border-yellow-600 bg-gray-500 text-black text-sm tracking-wider'
                     : 'border-0 bg-gray-500 text-white',
                 ]"
               >
