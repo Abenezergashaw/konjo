@@ -21,7 +21,7 @@ const getNumberColor = (number) => {
 <template>
   <div
     class="flex justify-center py-2 px-2 flex-wrap overflow-y-scroll border-4 mt-2 rounded-lg"
-    style="height: 50%"
+    style="height: 300px"
   >
     <div
       v-for="n in 400"
