@@ -224,9 +224,10 @@ onMounted(async () => {
       </div>
       <div class="flex-1">
         <div
-          class="bg-white rounded-lg border-2 border-gray-300 flex-1 py-1 flex justify-start items-center text-sm font-bold text-red-500 bg-opacity-50 px-2 uppercase tracking-wider"
+          class="bg-white rounded-lg border-2 border-gray-300 flex-1 py-1 flex justify-between items-center text-sm font-bold text-red-500 bg-opacity-50 px-2 uppercase tracking-wider"
         >
           <span class="font-bold">Started</span>
+          <span class="font-bold">{{ game.win_lines }} መስመሮች</span>
         </div>
 
         <PlayingCard
