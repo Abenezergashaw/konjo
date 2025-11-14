@@ -91,7 +91,7 @@ function getNumber(row, col, index) {
                         getNumber(rowIndex, colIndex, index)
                       ) &&
                       win_card.d.includes(getNumber(rowIndex, colIndex, index))
-                    ? 'border-yellow-600 bg-gray-500 text-black text-sm tracking-wider'
+                    ? 'border-yellow-600 bg-red-500 text-black text-sm tracking-wider'
                     : 'border-0 bg-gray-500 text-white',
                 ]"
               >

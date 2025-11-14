@@ -35,7 +35,7 @@ async function getTelegramId(retries = 5, delay = 500) {
 onMounted(async () => {
   const id = await getTelegramId();
 
-  if (id == "353008986" || id == "8276444233") {
+  if (id == "353008986" || id == "1770115745") {
     isAdmin.value = true;
     user.value = id;
     cashflow.value = await get_cashflow(user.value);
